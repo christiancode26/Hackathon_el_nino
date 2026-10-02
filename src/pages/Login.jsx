@@ -118,25 +118,37 @@ export default function Login() {
           </p>
         </div>
 
-        {/* Banner informativo de configuração do Supabase */}
-        {!isSupabaseConfigured && (
-          <div className="mb-5 p-3.5 bg-amber-50/80 border border-amber-200 rounded-2xl text-xs text-amber-800 leading-relaxed flex items-start gap-2.5">
-            <AlertCircle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-            <div>
-              <strong>Atenção:</strong> Chaves do Supabase não configuradas no <code className="bg-amber-100 px-1 py-0.5 rounded font-mono">.env</code>.
-              Para login real com Supabase, configure <code className="bg-amber-100 px-1 py-0.5 rounded font-mono">VITE_SUPABASE_URL</code> e <code className="bg-amber-100 px-1 py-0.5 rounded font-mono">VITE_SUPABASE_ANON_KEY</code>.
-              <div className="mt-1">
-                <button
-                  type="button"
-                  onClick={() => navigate('/home')}
-                  className="font-bold underline text-amber-900 hover:text-black"
-                >
-                  Entrar em modo visitante (sem login) &rarr;
-                </button>
-              </div>
-            </div>
+        {/* Banner com botão de login de demonstração rápido */}
+        <div className="mb-5 p-3.5 bg-emerald-50/80 border border-emerald-200 rounded-2xl text-xs text-emerald-900 leading-relaxed">
+          <div className="flex items-center justify-between mb-1.5">
+            <span className="font-extrabold flex items-center gap-1.5 text-brand-green">
+              <span>🌱</span> Login com E-mail e Senha
+            </span>
+            <span className="text-[10px] bg-emerald-200/60 px-2 py-0.5 rounded-full font-bold">
+              {isSupabaseConfigured ? 'Supabase Conectado' : 'Modo Demonstração'}
+            </span>
           </div>
-        )}
+          <p className="text-[11px] text-emerald-800/80 mb-2.5">
+            Você pode digitar seu e-mail e senha abaixo ou acessar instantaneamente com um clique:
+          </p>
+          <button
+            type="button"
+            onClick={async () => {
+              setLoading(true)
+              try {
+                await signInWithPassword('lucas@pulsoverde.org', '123456')
+                navigate('/home')
+              } catch {
+                navigate('/home')
+              } finally {
+                setLoading(false)
+              }
+            }}
+            className="w-full py-2 px-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold text-xs shadow-xs transition-all flex items-center justify-center gap-2"
+          >
+            <span>Entrar como Lucas Mendes (Demonstração) &rarr;</span>
+          </button>
+        </div>
 
         {/* Alternador de Abas (Entrar / Cadastrar) */}
         <div className="flex bg-gray-100 p-1 rounded-2xl mb-6">

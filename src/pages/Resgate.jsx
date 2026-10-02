@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { ArrowLeft, Recycle, CheckCircle2, Package, Truck, Sparkles, MapPin } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 import Button from '../components/Button'
+import BraceletIcon from '../components/BraceletIcon'
 
 export default function Resgate() {
   const navigate = useNavigate()
@@ -54,8 +55,8 @@ export default function Resgate() {
           </p>
         </div>
 
-        <div className="w-20 h-20 rounded-full border-4 border-pink-400 bg-white/10 flex items-center justify-center shrink-0 shadow-lg">
-          <Recycle className="w-10 h-10 text-pink-300" />
+        <div className="shrink-0">
+          <BraceletIcon color="#EC6FA3" size="lg" monogram="PV" />
         </div>
       </div>
 
@@ -107,9 +108,7 @@ export default function Resgate() {
             </span>
 
             <div className="p-5 bg-pink-50/50 border border-pink-200 rounded-2xl flex items-center gap-4">
-              <div className="w-14 h-14 rounded-full border-4 border-[#EC6FA3] bg-white flex items-center justify-center font-black text-xs text-[#EC6FA3] shadow-sm">
-                PV
-              </div>
+              <BraceletIcon color="#EC6FA3" size="md" monogram="PV" />
               <div>
                 <span className="text-[10px] font-extrabold uppercase tracking-wider text-pink-700 block">
                   Disponível para envio

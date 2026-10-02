@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Check, Lock, Sparkles, Recycle, ChevronRight } from 'lucide-react'
 import { MONTH_COLORS } from '../theme/monthColors'
+import BraceletIcon from '../components/BraceletIcon'
 
 export default function Calendario() {
   const currentMonth = 10 // Outubro
@@ -147,9 +148,7 @@ export default function Calendario() {
 
             {/* Marco 1: 3 Meses (Disponível) */}
             <div className="relative z-10 flex flex-col items-center text-center space-y-2">
-              <div className="w-14 h-14 rounded-full bg-white border-4 border-[#2B7DE9] flex items-center justify-center shadow-md">
-                <span className="text-xs font-black text-[#2B7DE9]">PV</span>
-              </div>
+              <BraceletIcon color="#2B7DE9" size="md" monogram="PV" />
               <div>
                 <span className="text-xs font-bold text-gray-900 block">3 meses</span>
                 <span className="text-[10px] font-bold text-emerald-600">Disponível</span>
@@ -164,9 +163,7 @@ export default function Calendario() {
 
             {/* Marco 2: 6 Meses */}
             <div className="relative z-10 flex flex-col items-center text-center space-y-2">
-              <div className="w-14 h-14 rounded-full bg-white border-4 border-[#2E9E5B] flex items-center justify-center shadow-md">
-                <span className="text-xs font-black text-[#2E9E5B]">PV</span>
-              </div>
+              <BraceletIcon color="#2E9E5B" size="md" monogram="PV" />
               <div>
                 <span className="text-xs font-bold text-gray-900 block">6 meses</span>
                 <span className="text-[10px] font-medium text-gray-400">Faltam 3</span>
@@ -175,9 +172,7 @@ export default function Calendario() {
 
             {/* Marco 3: 12 Meses */}
             <div className="relative z-10 flex flex-col items-center text-center space-y-2">
-              <div className="w-14 h-14 rounded-full bg-white border-4 border-[#F28C28] flex items-center justify-center shadow-md">
-                <span className="text-xs font-black text-[#F28C28]">PV</span>
-              </div>
+              <BraceletIcon color="#F28C28" size="md" isLocked={true} monogram="PV" />
               <div>
                 <span className="text-xs font-bold text-gray-900 block">12 meses</span>
                 <span className="text-[10px] font-medium text-gray-400">Faltam 9</span>

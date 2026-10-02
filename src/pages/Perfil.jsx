@@ -15,6 +15,7 @@ import {
 } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 import Button from '../components/Button'
+import BraceletIcon from '../components/BraceletIcon'
 
 export default function Perfil() {
   const navigate = useNavigate()
@@ -209,9 +210,7 @@ export default function Perfil() {
             {/* Pulseira 3 meses (Disponível) */}
             <div className="flex items-center justify-between p-3.5 bg-blue-50/40 border border-blue-100 rounded-2xl gap-3">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full border-4 border-[#2B7DE9] bg-white flex items-center justify-center text-xs font-black text-[#2B7DE9] shadow-sm">
-                  PV
-                </div>
+                <BraceletIcon color="#2B7DE9" size="md" monogram="PV" />
                 <div>
                   <span className="text-[10px] font-extrabold uppercase tracking-wider text-blue-700 block">
                     Disponível
@@ -233,9 +232,7 @@ export default function Perfil() {
             {/* Pulseira 6 meses (Bloqueada) */}
             <div className="flex items-center justify-between p-3.5 bg-gray-50 border border-gray-200/60 rounded-2xl gap-3 opacity-75">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-gray-200 text-gray-400 flex items-center justify-center">
-                  <Lock className="w-5 h-5" />
-                </div>
+                <BraceletIcon color="#2E9E5B" size="md" isLocked={true} monogram="PV" />
                 <div>
                   <span className="text-[10px] font-extrabold uppercase tracking-wider text-gray-400 block">
                     Bloqueada

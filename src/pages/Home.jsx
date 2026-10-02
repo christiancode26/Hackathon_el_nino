@@ -6,6 +6,7 @@ import { getMonthTheme } from '../theme/monthColors'
 import { getMissionsByMonth } from '../data/missions'
 import ProgressBar from '../components/ProgressBar'
 import Button from '../components/Button'
+import BraceletIcon from '../components/BraceletIcon'
 
 export default function Home() {
   const navigate = useNavigate()
@@ -375,11 +376,9 @@ export default function Home() {
               Próxima recompensa
             </span>
 
-            {/* Anel de pulseira ilustrado */}
+            {/* Pulseira Sustentável Ilustrada */}
             <div className="py-2 flex justify-center">
-              <div className="w-20 h-14 rounded-full border-4 border-[#EC6FA3] shadow-inner flex items-center justify-center transform -rotate-12 bg-pink-50/30">
-                <span className="text-[9px] font-black text-[#EC6FA3]">PV</span>
-              </div>
+              <BraceletIcon color="#EC6FA3" size="lg" monogram="PV" />
             </div>
 
             <div>
