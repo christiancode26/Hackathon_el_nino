@@ -1,73 +1,191 @@
-# Pulso Verde 🌱
+# 🌿 Pulso Verde
 
 > **"Alertas avisam. A comunidade age."**
 
-Rede social gamificada mobile-first desenvolvida para o Hackathon com o tema **Super El Niño: o desafio do século 21**. O aplicativo engaja comunidades na preparação contra ondas de calor, temporais, enchentes, deslizamentos e secas através de missões colaborativas, pontos, emblemas mensais e recompensas físicas sustentáveis.
+**Pulso Verde** é uma plataforma gamificada de mobilização comunitária criada para preparar bairros vulneráveis aos impactos do **Super El Niño** no Brasil — incluindo ondas de calor, chuvas extremas, enchentes, deslizamentos e seca.
 
 ---
 
-## 🚀 Como Rodar o Projeto
+## 🌎 Contexto e Relevância — El Niño
+
+O fenômeno climático **El Niño** provoca desequilíbrios severos no regime de chuvas e temperaturas em todo o Brasil. Em anos de Super El Niño:
+
+- 🔥 **Sul e Sudeste** enfrentam chuvas torrenciais, enchentes e deslizamentos
+- 🌵 **Norte e Nordeste** sofrem com secas prolongadas e ondas de calor extremo
+- 🏚️ Comunidades de baixa renda são as mais afetadas pela falta de informação e de preparo
+
+O Pulso Verde nasce como resposta direta a esse cenário: **se as pessoas não conseguem evitar os eventos climáticos, podem se preparar coletivamente para sobreviver a eles.**
+
+---
+
+## 🎯 Objetivos do Projeto
+
+| Objetivo | Descrição |
+|---|---|
+| 🔔 **Alertar** | Informar a comunidade sobre riscos climáticos em tempo real com base na cidade do usuário (API Open-Meteo) |
+| 🤝 **Engajar** | Gamificar o preparo comunitário com missões mensais, pontos, streaks e pulseiras de reconhecimento |
+| 📅 **Educar** | Apresentar 12 campanhas anuais alinhadas ao calendário de riscos do El Niño e ao calendário de saúde pública |
+| 🏘️ **Conectar** | Criar um feed social onde vizinhos validam ações uns dos outros, fortalecendo o capital social local |
+| 💧 **Mobilizar** | Facilitar doações para comunidades em situação de emergência climática |
+
+---
+
+## ✨ Principais Funcionalidades
+
+### 🏠 Home — Missões do Mês
+- Exibe as **2 missões mensais** temáticas alinhadas ao risco climático vigente
+- Cabeçalho com a **cor do mês** (12 paletas únicas) e campanha de conscientização
+- Registro de +10 pontos por missão concluída + bônus de +5 ao completar ambas
+- Atualização de **streak** diário de engajamento
+
+### 📅 Calendário de Comprometimento
+- Grade visual dos 12 meses com status: ✅ Concluído | 🔄 Em andamento | 🔒 Bloqueado
+- Marcos de **pulseiras de reconhecimento** aos 3, 6 e 12 meses
+- Linha do tempo de conquistas gamificadas
+
+### 🚨 Aba de Alertas
+- Integração com a **API Open-Meteo** (sem necessidade de chave) para dados meteorológicos em tempo real
+- Geração automática de alertas por nível de risco:
+  - 🟢 Verde — Situação normal
+  - 🟡 Amarelo — Atenção
+  - 🟠 Laranja — Alerta
+  - 🔴 Vermelho — Emergência
+- Filtros por tipo: Enchente, Calor, Deslizamento, Seca
+- **Checklist do plano de emergência** domiciliar
+- Atalhos para ligação direta: **199** (Defesa Civil), **193** (Bombeiros), **192** (SAMU)
+- Fallback para dados mock em caso de falha na API
+
+### 👤 Perfil e Conquistas
+- Pontuação total, streak, ações realizadas e vizinhos engajados
+- Grid de **emblemas mensais** (1 por campanha concluída)
+- Status das **pulseiras de reconhecimento** com ícone temático exclusivo
+
+### 🏆 Ranking de Bairros
+- Ranking de bairros por % de participação na meta climática da cidade
+- Podium com top-3 destaque
+- Posição do bairro do usuário fixada na base
+
+### 📱 Feed Social
+- Criação de posts com foto e localização
+- **Validação de ação por vizinho** (+5 pontos para o validador)
+- Reações e comentários na comunidade
+
+### 💚 Resgate de Pulseiras
+- Formulário de solicitação de pulseiras físicas com endereço de entrega
+- Timeline de status do pedido
+
+### 💧 Doe Aqui
+- Doações simbólicas (R$10 / R$25 / R$50 ou valor livre)
+- Barra de transparência mostrando destinação dos recursos (72% direto / 18% logística / 10% plataforma)
+
+---
+
+## 🗓️ Missões por Mês — Calendário El Niño
+
+| Mês | Cor | Campanha | Risco Climático |
+|---|---|---|---|
+| Janeiro | 🔴 Vermelho | Janeiro Vermelho | Chuvas / Enchentes |
+| Fevereiro | 🩷 Rosa claro | Prevenção de Doenças | Epidemias pós-chuva |
+| Março | 🟤 Marrom | Deslizamentos | Encostas / Deslizamentos |
+| Abril | 🟢 Verde | Abril Verde | Conscientização ambiental |
+| Maio | 🟡 Amarelo | Maio Amarelo | Segurança e mobilidade |
+| Junho | 🔵 Azul escuro | Enchentes de Inverno | Chuvas do inverno |
+| Julho | 🩵 Azul claro | Julho das Águas | Gestão hídrica / Seca |
+| Agosto | 🟠 Laranja | Calor Extremo | Onda de calor / Seca |
+| Setembro | 🌿 Verde musgo | Setembro Verde | Qualidade do ar / Queimadas |
+| Outubro | 🌸 Rosa | Outubro Rosa | Saúde / Preparo geral |
+| Novembro | 🔵 Azul | Novembro Azul | Saúde masculina / Alerta chuvas |
+| Dezembro | ⭐ Dourado | Dezembro Solidário | Solidariedade / Fim de ano |
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+| Tecnologia | Uso |
+|---|---|
+| **React 18 + Vite** | Interface e build |
+| **Tailwind CSS** | Estilização responsiva |
+| **React Router v6** | Navegação entre telas |
+| **Supabase** | Auth (e-mail + Google) e banco de dados PostgreSQL |
+| **Open-Meteo API** | Dados meteorológicos em tempo real (sem API key) |
+| **localStorage** | Modo demo sem backend configurado |
+
+---
+
+## 🚀 Como Rodar Localmente
 
 ### Pré-requisitos
-- **Node.js**: v18+ (testado no Node v24)
-- **NPM**: v9+
+- Node.js ≥ 18
+- npm ≥ 9
 
-### 1. Clonar e Instalar Dependências
+### Instalação
+
 ```bash
-# Instalar pacotes
+# Clone o repositório
+git clone https://github.com/christiancode26/Hackathon_el_nino.git
+cd Hackathon_el_nino
+
+# Instale as dependências
 npm install
-```
 
-### 2. Configurar Variáveis de Ambiente
-Copie o arquivo `.env.example` para `.env`:
-```bash
-cp .env.example .env
-```
-
-Edite o arquivo `.env` com suas credenciais do **Supabase**:
-```env
-VITE_SUPABASE_URL=https://seu-projeto.supabase.co
-VITE_SUPABASE_ANON_KEY=sua-chave-anon-publica
-```
-*(Caso não configure o Supabase imediatamente, o app funciona 100% em **modo de demonstração** com dados locais para o pitch).*
-
-### 3. Configurar Banco de Dados (Supabase)
-No painel do Supabase, abra o **SQL Editor** e execute:
-1. `supabase/schema.sql`: cria as tabelas `profiles`, `missions`, `user_missions`, `badges`, `bracelet_claims`, `donations` com RLS ativado.
-2. `supabase/seed.sql`: insere as 24 missões do calendário das campanhas.
-
-### 4. Executar em Desenvolvimento
-```bash
+# Inicie o servidor de desenvolvimento
 npm run dev
 ```
-Acesse `http://localhost:5173`.
 
-### 5. Build para Produção
+Acesse **http://localhost:5173** no navegador.
+
+> 💡 **Modo Demo**: sem configurar o Supabase, use o botão **"Entrar como Lucas Mendes (Demonstração)"** na tela de login para explorar todas as funcionalidades.
+
+### Variáveis de Ambiente (opcional — para Supabase)
+
+Crie um arquivo `.env` na raiz do projeto:
+
+```env
+VITE_SUPABASE_URL=https://seu-projeto.supabase.co
+VITE_SUPABASE_ANON_KEY=sua-chave-anonima
+```
+
+Sem essas variáveis, o app roda integralmente em **modo demo** com localStorage.
+
+### Build para Produção
+
 ```bash
 npm run build
-npm run preview
 ```
 
 ---
 
-## 📱 Estrutura das Telas (Figma)
+## 🗂️ Estrutura do Projeto
 
-- `01-login` (`/login`): Autenticação por e-mail/senha e Google OAuth com consentimento LGPD.
-- `02-home` (`/home`): Saudação, status de risco do bairro, card da campanha com a cor do mês (Outubro rosa `#EC6FA3`), barra de progresso e missões diárias com botão "Concluir" (+10 pts e bônus de +5).
-- `03-missao` (`/missao/:id`): Detalhe da missão, explicação do impacto para o Super El Niño, envio de foto opcional e solicitação de validação comunitária.
-- `04-feed` (`/feed`): Feed social de ações realizadas no bairro, fotos de mutirões, curtidas e botão de confirmação entre vizinhos.
-- `05-calendario` (`/calendario`): Grade dos 12 meses do ano com emblemas, mês em andamento e linha do tempo dos marcos de pulseiras físicas (3, 6 e 12 meses).
-- `06-ranking` (`/ranking`): Meta coletiva da cidade, pódio dos 3 bairros líderes e classificação geral com destaque para o bairro do usuário.
-- `07-perfil` (`/perfil`): Painel do usuário, nível, sequência (*streak*), histórico de emblemas e status de resgate de pulseiras.
-- `08-resgate` (`/resgate`): Fluxo de solicitação da pulseira física feita com plástico 100% reciclado.
-- `09-doe` (`/doe`): Apoio financeiro com cotas sugeridas (R$ 10, R$ 25, R$ 50), prestação de contas e transparência do uso dos recursos.
-- `10-alertas` (`/alertas`): Central com dados em tempo real da **Open-Meteo**, seletor de cenários de emergência para o pitch (Calor 39°C, Tempestade, Seca), checklist do Plano de Emergência e discagem rápida (199, 193, 192).
+```
+src/
+├── components/        # Componentes reutilizáveis (Button, Badge, AlertCard, BraceletIcon...)
+├── context/           # AuthContext — estado global de autenticação e gamificação
+├── data/              # missions.js, alerts.js — dados das missões e alertas mock
+├── lib/               # supabase.js — cliente Supabase com detecção de modo demo
+├── pages/             # Telas: Home, Alertas, Calendário, Perfil, Ranking, Feed, Doe, Resgate
+├── services/          # weatherService.js — integração Open-Meteo
+└── theme/             # monthColors.js — paleta e campanhas dos 12 meses
+```
 
 ---
 
-## 🛠 Stack Tecnológica
+## 👥 Equipe
 
-- **Frontend:** React 18, Vite, Tailwind CSS, React Router v6, Lucide Icons
-- **Backend / Auth:** Supabase (Auth + PostgreSQL + Row Level Security)
-- **API de Clima:** Open-Meteo (tempo real sem chave de API + contingência automática)
-- **Deploy:** Vercel (`vercel.json` incluso para SPA rewrites)
+| Nome | GitHub |
+|---|---|
+| **Christian Rodrigues dos Santos** | [@christiancode26](https://github.com/christiancode26) |
+| **Victor Otavio Marques Garcia do Nascimento** | — |
+
+---
+
+## 📄 Licença
+
+Este projeto foi desenvolvido para fins de **hackathon acadêmico**. Todos os direitos reservados aos autores.
+
+---
+
+<div align="center">
+  <strong>🌿 Pulso Verde — Alertas avisam. A comunidade age.</strong><br/>
+  Feito com 💚 para comunidades brasileiras vulneráveis ao clima extremo.
+</div>
